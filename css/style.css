@@ -1,6 +1,5 @@
 * {
     box-sizing: border-box;
-    font-family: 'Overpass', serif;
     font-family: 'Montserrat Alternates', sans-serif;
     margin: 0;
     padding: 0;
@@ -25,21 +24,33 @@ body {
 }
 
 header {
-    padding: 2rem;
+    padding: 1rem;
+    background-image: url("../assets/galaxy.jpg");
+    background-size: cover;
+    background-position: top;
+    margin: 1rem;
 }
 
 h1 {
     font-family: 'Megrim', sans-serif;
-    font-size: 4rem;
+    font-size: 4.5rem;
     font-weight: normal; 
     text-align: center;
 }
 
 h2 {
-    font-size: 1.5rem;
+    font-size: 1.6rem;
     font-weight: normal; 
     text-align: center;
-    padding-bottom: 3rem;
+    padding: 1rem 0 3rem;
+}
+
+.formula-word {
+    font-size: 1.3rem;
+}
+
+.formula-symbol {
+    font-size: 2.5rem;
 }
 
 sup, sub {
@@ -55,9 +66,13 @@ sub {
     top: 0.4em; 
 }
 
+input[type=text] {
+    margin: 0.4rem 0;
+}
+
 fieldset {
     border: none;
-    margin-top: 1rem;
+    margin: 1rem 0;
 };
 
 .grid {
@@ -73,15 +88,29 @@ fieldset {
     grid-auto-flow: row;
     grid-template-columns: 1fr 5% 1fr 5% 1fr;
     grid-template-rows: 1fr;
-    margin: 2rem;
+    margin: 0 2rem 2rem;
+    align-items: center;
 }
 
 .grid-bottom {
     display: grid;
     grid-auto-flow: row;
-    grid-template-columns: 1fr 5% 1fr 5% 1fr;
+    grid-template-columns: 1fr 1% 1fr 1% 1fr;
     grid-template-rows: 1fr;
-    margin: 1rem 2rem;
+}
+
+@media only screen and (max-width: 800px) {
+
+    .grid-top {
+        grid-template-columns: auto auto auto auto auto;
+        margin: 0 1rem 2rem;
+    }
+
+    .grid-bottom {
+        grid-auto-flow: column;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto auto auto auto;
+    }
 }
 
 .mass, .volume, .density {

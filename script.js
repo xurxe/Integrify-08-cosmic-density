@@ -16,18 +16,29 @@ for (let i = 0; i < inputRadioButtons.length; i++) {
 
 // style submit button
 const submitButton = document.querySelector('button[type="submit"]');
-for (let i = 0; i < inputRadioButtons.length; i++) {
-    submitButton.style.fontSize = '1rem';
-    submitButton.style.padding = '0 1rem';
-    submitButton.style.width = '80%';
-    submitButton.style.height = '3rem';
-    submitButton.style.margin = '1rem 10%';
-
-}
+submitButton.style.fontSize = '1rem';
+submitButton.style.padding = '0 1rem';
+submitButton.style.width = '80%';
+submitButton.style.height = '3rem';
+submitButton.style.margin = '1rem 10%';
+submitButton.style.outline = 'none';
 
 
+// style clear button
+const clearButton = document.querySelector('button[type="reset"]');
+clearButton.style.fontSize = '1rem';
+clearButton.style.padding = '0 1rem';
+clearButton.style.width = '80%';
+clearButton.style.height = '3rem';
+clearButton.style.margin = '1rem 10%';
+clearButton.style.background = 'none';
+clearButton.style.border = '1px solid white';
+clearButton.style.color = 'white';
+clearButton.style.outline = 'none';
 
-// define an array (planets). each element is an object (planet).
+
+
+// define an array (planets). Each element is an object (planet).
 // each object corresponds to a planet in the solar system; properties are the name and density of the planet.
 // planets are ordered from lowest to highest density
 const planets = [
@@ -201,5 +212,23 @@ calculateDensityButton.addEventListener('click', function() {
     else {
         let x = Math.round(densityStandard / densityEarth);
         compareToPlanet.innerHTML = `This is about ${x} times denser than the densest planet in our solar system - Earth!`;
+    }
+});
+
+
+
+// select result paragraphs
+results = document.querySelectorAll('.result');
+console.log(results);
+
+
+// when clicking the clear-button, remove content from input boxes and result paragraphs
+clearButton.addEventListener('click', function() {
+    for (let i = 0; i < inputTextFields.length; i++) {
+        inputTextFields[i].value = "";
+    }
+
+    for (let i = 0; i < results.length; i++) {
+        results[i].innerHTML = "";
     }
 });
