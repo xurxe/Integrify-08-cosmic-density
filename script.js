@@ -3,8 +3,7 @@ const inputTextFields = document.querySelectorAll('input[type="text"]');
 for (let i = 0; i < inputTextFields.length; i++) {
     inputTextFields[i].style.outline = 'none';
     inputTextFields[i].style.fontSize = '0.8rem';
-    inputTextFields[i].style.width = '5rem';
-    inputTextFields[i].style.margin = '0 1rem';
+    inputTextFields[i].style.width = '100%';
     inputTextFields[i].style.padding = '0 0.2rem';
 }
 
@@ -20,7 +19,10 @@ const submitButton = document.querySelector('button[type="submit"]');
 for (let i = 0; i < inputRadioButtons.length; i++) {
     submitButton.style.fontSize = '1rem';
     submitButton.style.padding = '0 1rem';
-    submitButton.style.width = '50%';
+    submitButton.style.width = '80%';
+    submitButton.style.height = '3rem';
+    submitButton.style.margin = '1rem 10%';
+
 }
 
 
