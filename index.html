@@ -4,94 +4,127 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>Document</title>
+        <title>COSMIC DENSITY CALCULATOR</title>
+        <link href="https://fonts.googleapis.com/css?family=Megrim|Overpass|Arvo|Bungee" rel="stylesheet">
+        <link href="./css/style.css" rel="stylesheet" />
     </head>
     <body>
-        <h1>Cosmic density calculator</h1>
-        <p>Objects have densities. Planets do too.</p>
-        <p>Compare any object to the planets in our solar system.</p>
-        <fieldset>
-                <legend>Mass</legend>
-            <div class="radio-and-label">
-                <label for= "inputMass">Enter the mass:</label>
-                <input type="text" id="inputMass" name='inputMass'>
-            </div>
-            <div class="radio-and-label">
-                <input type='radio' id="unitMassG" name="unitMass" value='1' checked>
-                <label for= "unitMassG">g</label>
-            </div>
-            <div class="radio-and-label">
-                <input type='radio' id="unitMassKg" name="unitMass" value='1000'>
-                <label for= "unitMassKg">kg</label>
-            </div>
-            <div class="radio-and-label">
-                <input type='radio' id="unitMassOz" name="unitMass" value='1000000'>
-                <label for= "unitMassG">tonne</label>
-            </div>
-            <div class="radio-and-label">
-                <input type='radio' id="unitMassOz" name="unitMass" value='28.3495'>
-                <label for= "unitMassG">oz</label>
-            </div>
-            <div class="radio-and-label">
-                <input type='radio' id="unitMassKg" name="unitMass" value='453.592'>
-                <label for= "unitMassKg">lb</label>
-            </div>
-            <div class="radio-and-label">
-                <input type='radio' id="unitMassKg" name="unitMass" value='907185'>
-                <label for= "unitMassKg">US ton</label>
-            </div>
-            <div class="radio-and-label">
-                <input type='radio' id="unitMassKg" name="unitMass" value='907185'>
-                <label for= "unitMassKg">imperial ton</label>
-            </div>
-        </fieldset>
+        <header>
+            <h1>COSMIC DENSITY CALCULATOR</h1>
+        </header>
 
-        <fieldset>
-            <legend>Volume</legend>
-            <div class="radio-and-label">
-                <label for= "inputVolume">Enter the volume:</label>
-                <input type="text" id="inputVolume" name='inputVolume'>
+        <main>
+
+            <h2>Objects&nbsp;have&nbsp;densities. Planets&nbsp;do&nbsp;too.</h2>
+
+            <div class=grid>
+                <div class="grid-top">
+                    <h3 class="formula formula-word">mass</h3>
+                    <h3 class="formula formula-symbol">/</h3>
+                    <h3 class="formula formula-word">volume</h3>
+                    <h3 class="formula formula-symbol">=</h3>
+                    <h3 class="formula formula-word">density</h3>
+                </div>
+    
+                <div class="grid-bottom">
+                    <div class="mass">
+                        <div class="input-and-label">
+                            <label for= "inputMass">Enter mass value:</label>
+                            <input type="text" id="inputMass" name='inputMass'>
+                        </div>
+            
+                        <fieldset>
+                            <legend>Select mass unit:</legend>
+                            <div class="input-and-label">
+                                <input type='radio' id="unitMassG" name="unitMass" value='1' checked>
+                                <label for= "unitMassG">g</label>
+                            </div>
+                            <div class="input-and-label">
+                                <input type='radio' id="unitMassKg" name="unitMass" value='1000'>
+                                <label for= "unitMassKg">kg</label>
+                            </div>
+                            <div class="input-and-label">
+                                <input type='radio' id="unitMassOz" name="unitMass" value='1000000'>
+                                <label for= "unitMassG">tonne</label>
+                            </div>
+                            <div class="input-and-label">
+                                <input type='radio' id="unitMassOz" name="unitMass" value='28.3495'>
+                                <label for= "unitMassG">oz</label>
+                            </div>
+                            <div class="input-and-label">
+                                <input type='radio' id="unitMassKg" name="unitMass" value='453.592'>
+                                <label for= "unitMassKg">lb</label>
+                            </div>
+                            <div class="input-and-label">
+                                <input type='radio' id="unitMassKg" name="unitMass" value='907185'>
+                                <label for= "unitMassKg">US ton</label>
+                            </div>
+                            <div class="input-and-label">
+                                <input type='radio' id="unitMassKg" name="unitMass" value='907185'>
+                                <label for= "unitMassKg">imperial ton</label>
+                            </div>
+                        </fieldset>
+                        
+                    </div>
+            
+                    <div class="volume">
+                        <div class="input-and-label">
+                            <label for= "inputVolume">Enter volume value:</label>
+                            <input type="text" id="inputVolume" name='inputVolume'>
+                        </div>
+            
+                        <fieldset>
+                            <legend>Select volume unit:</legend>
+
+                            <div class="input-and-label">
+                                <input type='radio' id="unitVolumeCm3" name="unitVolume" value='1' checked>
+                                <label for= "unitVolumeCm3">cm<sup>3</sup></label>
+                            </div>
+                
+                            <div class="input-and-label">
+                                <input type='radio' id="unitVolumeL" name="unitVolume" value='1000'>
+                                <label for= "unitVolumeL">L</label>
+                            </div>
+                
+                            <div class="input-and-label">
+                                <input type='radio' id="unitVolumeL" name="unitVolume" value='1000000'>
+                                <label for= "unitVolumeL">m<sup>3</sup></label>
+                            </div>
+                
+                            <div class="input-and-label">
+                                <input type='radio' id="unitVolumeCm3" name="unitVolume" value='16.3871'>
+                                <label for= "unitVolumeCm3">in<sup>3</sup></label>
+                            </div>
+                
+                            <div class="input-and-label">
+                                <input type='radio' id="unitVolumeL" name="unitVolume" value='3785.41'>
+                                <label for= "unitVolumeL">US gallon</label>
+                            </div>
+                
+                            <div class="input-and-label">
+                                <input type='radio' id="unitVolumeL" name="unitVolume" value='4546.09'>
+                                <label for= "unitVolumeL">imperial gallon</label>
+                            </div>
+                
+                            <div class="input-and-label">
+                                <input type='radio' id="unitVolumeL" name="unitVolume" value='28316.8'>
+                                <label for= "unitVolumeL">ft<sup>3</sup></label>
+                            </div>
+                        </fieldset>
+                    
+                    </div>
+            
+                    <div class="density">
+                        <button type="submit" id="calculateDensityButton">Calculate density</button>
+                        <p id="calculateDensityResult"></p>
+                        <p id="compareToPlanet"></p>
+                    </div>
+    
+                </div>
             </div>
 
-            <div class="radio-and-label">
-                <input type='radio' id="unitVolumeCm3" name="unitVolume" value='1' checked>
-                <label for= "unitVolumeCm3">cm<sup>3</sup></label>
-            </div>
+        </main>
 
-            <div class="radio-and-label">
-                <input type='radio' id="unitVolumeL" name="unitVolume" value='1000'>
-                <label for= "unitVolumeL">L</label>
-            </div>
-
-            <div class="radio-and-label">
-                <input type='radio' id="unitVolumeL" name="unitVolume" value='1000000'>
-                <label for= "unitVolumeL">m<sup>3</sup></label>
-            </div>
-
-            <div class="radio-and-label">
-                <input type='radio' id="unitVolumeCm3" name="unitVolume" value='16.3871'>
-                <label for= "unitVolumeCm3">in<sup>3</sup></label>
-            </div>
-
-            <div class="radio-and-label">
-                <input type='radio' id="unitVolumeL" name="unitVolume" value='3785.41'>
-                <label for= "unitVolumeL">US gallon</label>
-            </div>
-
-            <div class="radio-and-label">
-                <input type='radio' id="unitVolumeL" name="unitVolume" value='4546.09'>
-                <label for= "unitVolumeL">imperial gallon</label>
-            </div>
-
-            <div class="radio-and-label">
-                <input type='radio' id="unitVolumeL" name="unitVolume" value='28316.8'>
-                <label for= "unitVolumeL">ft<sup>3</sup></label>
-            </div>
-        </fieldset>
-
-        <button type="submit" id="calculateDensityButton">Calculate density</button>
-        <p id="calculateDensityResult"></p>
-        <p id="compareToPlanet"></p>
 
         <script src="./script.js"></script>
     </body>
