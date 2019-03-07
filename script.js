@@ -4,7 +4,7 @@ for (let i = 0; i < inputTextFields.length; i++) {
     inputTextFields[i].style.outline = 'none';
     inputTextFields[i].style.fontSize = '0.8rem';
     inputTextFields[i].style.width = '100%';
-    inputTextFields[i].style.padding = '0 0.2rem';
+    inputTextFields[i].style.padding = '0.1rem 0.3rem';
 }
 
 // style radio buttons
@@ -25,67 +25,6 @@ for (let i = 0; i < inputRadioButtons.length; i++) {
 
 }
 
-
-
-
-/*
-// planet densities in g/cm^3 (lowest to highest)
-const densitySaturn = 0.69;
-const densityUranus = 1.27;
-const densityJupiter = 1.33;
-const densityNeptune = 1.64;
-const densityMars = 3.93;
-const densityVenus = 5.24;
-const densityMercury = 5.42;
-const densityEarth = 5.51;
-*/
-
-
-
-/* 
-// manual calculation of density ranges
-// using the middle point between the density of one planet and the next as the breaking point in ranges
-
-const densityRangeSaturn = [
-    0, 
-    densitySaturn + 0.5 * (densityUranus - densitySaturn),
-];
-
-const densityRangeUranus = [
-    densityUranus - 0.5 * (densityUranus - densitySaturn), 
-    densityUranus + 0.5 * (densityJupiter - densityUranus),
-];
-
-const densityRangeJupiter = [
-    densityJupiter - 0.5 * (densityJupiter - densityUranus), 
-    densityJupiter + 0.5 * (densityNeptune - densityJupiter),
-];
-
-const densityRangeNeptune = [
-    densityNeptune - 0.5 * (densityNeptune - densityJupiter), 
-    densityNeptune + 0.5 * (densityMars - densityNeptune),
-];
-
-const densityRangeMars = [
-    densityMars - 0.5 * (densityMars - densityNeptune), 
-    densityMars + 0.5 * (densityVenus - densityMars),
-];
-
-const densityRangeVenus = [
-    densityVenus - 0.5 * (densityVenus - densityMars), 
-    densityVenus + 0.5 * (densityMercury - densityVenus),
-];
-
-const densityRangeMercury = [
-    densityMercury - 0.5 * (densityMercury - densityVenus), 
-    densityMercury + 0.5 * (densityEarth - densityMercury),
-];
-
-const densityRangeEarth = [
-    densityEarth - 0.5 * (densityEarth - densityMercury), 
-    Infinity,
-];
-*/
 
 
 // define an array (planets). each element is an object (planet).
@@ -132,6 +71,8 @@ const planets = [
         density: 5.51,
     },
 ]
+
+const densityEarth = 5.51;
 
 
 // define function to generate density ranges
@@ -181,10 +122,22 @@ const calculateDensityButton = document.querySelector('#calculateDensityButton')
 
 // when the button is clicked, execute the code below
 calculateDensityButton.addEventListener('click', function() {
-    // select the textbox where the user enters the mass
+    // select the textboxes where the user enters the mass and volume
     const inputMass = document.querySelector('#inputMass');
+    const inputVolume = document.querySelector('#inputVolume');
 
-    // select the unit of the radio button chosen by the user
+    // terminate function if those fields contain anything other than 0 or positive numbers
+    if (inputMass.value == "" || inputVolume.value == "") {
+        calculateDensityResult.innerHTML = 'Please fill out all fields.';
+        return false;
+    }
+
+    else if (!(inputMass.value > 0) || !(inputVolume.value > 0)) {
+        calculateDensityResult.innerHTML = 'Please enter only positive numbers.';
+        return false;
+    }
+
+    // select the mass unit of the radio button chosen by the user
     const unitMass = document.querySelector('input[name=unitMass]:checked');
 
     // the mass is the value entered in the textbox multiplied by the unit multiplier
@@ -192,10 +145,7 @@ calculateDensityButton.addEventListener('click', function() {
     const mass = inputMass.value;
     const massStandard = inputMass.value * unitMass.value;
 
-
-
     // do the same as above for the volume
-    const inputVolume = document.querySelector('#inputVolume');
     const unitVolume = document.querySelector('input[name=unitVolume]:checked');
     const volume = inputVolume.value;
     const volumeStandard = inputVolume.value * unitVolume.value;
@@ -217,10 +167,11 @@ calculateDensityButton.addEventListener('click', function() {
     // do the same for the volume unit
     const unitVolumeId = unitVolume.getAttribute('id');
     const unitVolumeLabel = document.querySelector(`label[for=${unitVolumeId}]`).innerHTML;
-    
+
 
 
     // write a sentence with the density of the object
+
     if (unitMass.value == 1 && unitVolume.value == 1) {
         calculateDensityResult.innerHTML = `The density of your object is ${density} ${unitMassLabel} / ${unitVolumeLabel}.`;
     }
@@ -243,5 +194,12 @@ calculateDensityButton.addEventListener('click', function() {
 
 
     // write a sentence comparing the density of the object to the density of that planet
-    compareToPlanet.innerHTML = `This is closest to the density of ${planetName}, which is ${planetDensity} g / cm<sup>3</sup>.`;
+    if (densityStandard < 10){
+        compareToPlanet.innerHTML = `This is closest to the density of ${planetName}, which is ${planetDensity} g / cm<sup>3</sup>.`;
+    }
+    
+    else {
+        let x = Math.round(densityStandard / densityEarth);
+        compareToPlanet.innerHTML = `This is about ${x} times denser than the densest planet in our solar system - Earth!`;
+    }
 });
