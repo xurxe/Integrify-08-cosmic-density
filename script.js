@@ -18,9 +18,9 @@ for (let i = 0; i < inputRadioButtons.length; i++) {
 const submitButton = document.querySelector('button[type="submit"]');
 submitButton.style.fontSize = '1rem';
 submitButton.style.padding = '0 1rem';
-submitButton.style.width = '80%';
-submitButton.style.height = '3rem';
-submitButton.style.margin = '1rem 10%';
+submitButton.style.width = '100%';
+submitButton.style.height = '4rem';
+submitButton.style.margin = '0.5rem 0';
 submitButton.style.outline = 'none';
 
 
@@ -28,9 +28,9 @@ submitButton.style.outline = 'none';
 const clearButton = document.querySelector('button[type="reset"]');
 clearButton.style.fontSize = '1rem';
 clearButton.style.padding = '0 1rem';
-clearButton.style.width = '80%';
-clearButton.style.height = '3rem';
-clearButton.style.margin = '1rem 10%';
+clearButton.style.width = '100%';
+clearButton.style.height = '2.5rem';
+clearButton.style.margin = '1rem 0';
 clearButton.style.background = 'none';
 clearButton.style.border = '1px solid white';
 clearButton.style.color = 'white';
@@ -139,12 +139,12 @@ calculateDensityButton.addEventListener('click', function() {
 
     // terminate function if those fields contain anything other than 0 or positive numbers
     if (inputMass.value == "" || inputVolume.value == "") {
-        calculateDensityResult.innerHTML = 'Please fill out all fields.';
+        warning.innerHTML = 'Please fill out all fields.';
         return false;
     }
 
     else if (!(inputMass.value > 0) || !(inputVolume.value > 0)) {
-        calculateDensityResult.innerHTML = 'Please enter only positive numbers.';
+        warning.innerHTML = 'Please enter only positive numbers.';
         return false;
     }
 
@@ -181,18 +181,6 @@ calculateDensityButton.addEventListener('click', function() {
 
 
 
-    // write a sentence with the density of the object
-
-    if (unitMass.value == 1 && unitVolume.value == 1) {
-        calculateDensityResult.innerHTML = `The density of your object is ${density} ${unitMassLabel} / ${unitVolumeLabel}.`;
-    }
-
-    else {
-        calculateDensityResult.innerHTML = `The density of your object is ${density} ${unitMassLabel} / ${unitVolumeLabel}, which is the same as ${densityStandard} g / cm<sup>3</sup>.`;
-    }
-
-
-
     // loop through planets to find the planet closest in density
     for (i = 0; i < planets.length; i++) {
         if (planets[i].densityRange[0] <= densityStandard && densityStandard < planets[i].densityRange[1]) {
@@ -203,23 +191,33 @@ calculateDensityButton.addEventListener('click', function() {
     }
 
 
+    // write a sentence with the density of the object
+
+    if (unitMass.value == 1 && unitVolume.value == 1) {
+        calculateDensityResult.innerHTML = `The density of your object is ${density}&nbsp;${unitMassLabel}&nbsp;/&nbsp;${unitVolumeLabel}.`;
+    }
+
+    else {
+        calculateDensityResult.innerHTML = `The density of your object is ${density}&nbsp;${unitMassLabel}&nbsp;/&nbsp;${unitVolumeLabel} (${densityStandard}&nbsp;g&nbsp;/&nbsp;cm<sup>3</sup>).`;
+    }
+
+
 
     // write a sentence comparing the density of the object to the density of that planet
     if (densityStandard < 10){
-        compareToPlanet.innerHTML = `This is closest to the density of ${planetName}, which is ${planetDensity} g / cm<sup>3</sup>.`;
+        compareToPlanet.innerHTML = `This is closest to the density of ${planetName}, which is ${planetDensity} g&nbsp;/&nbsp;cm<sup>3</sup>.`;
     }
     
     else {
         let x = Math.round(densityStandard / densityEarth);
         compareToPlanet.innerHTML = `This is about ${x} times denser than the densest planet in our solar system - Earth!`;
     }
+
+    planetImage.setAttribute('src', './assets/' + planetName + '.jpg');
+    calculateDensityResult.scrollIntoView();
+
 });
 
-
-
-// select result paragraphs
-results = document.querySelectorAll('.result');
-console.log(results);
 
 
 // when clicking the clear-button, remove content from input boxes and result paragraphs
@@ -228,7 +226,7 @@ clearButton.addEventListener('click', function() {
         inputTextFields[i].value = "";
     }
 
-    for (let i = 0; i < results.length; i++) {
-        results[i].innerHTML = "";
+    for (let i = 0; i < result.length; i++) {
+        result[i].innerHTML = "";
     }
 });

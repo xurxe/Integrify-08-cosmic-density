@@ -10,7 +10,7 @@
     </head>
     <body>
         <header>
-            <h1>COSMIC DENSITY CALCULATOR</h1>
+            <h1>COSMIC  DENSITY  CALCULATOR</h1>
         </header>
 
         <main>
@@ -97,16 +97,26 @@
                     <div></div>
 
                     <div class="density">
-                        <button type="submit" id="calculateDensityButton">Calculate density.</button>
-                        <button type="reset" value="Reset">Clear.</button>
-                        <p class="result" id="calculateDensityResult"></p>
-                        <p class="result" id="compareToPlanet"></p>
+                        <button type="submit" id="calculateDensityButton">Calculate density!</button>
+                        <button type="reset" value="Reset">clear</button>
+                        <p class= "result result-warning" id="warning"></p>
                     </div>
     
                 </div>
             </div>
 
+            <div class="results">
+                <p class="result result-density" id="calculateDensityResult"></p>
+                <p class="result result-planet" id="compareToPlanet"></p>
+                <img id="planetImage" src="./assets/solar-system1.jpg"/>
+
+            </div>
+
         </main>
+
+        <footer>
+            <p>by Xurxe Toivo García 2019</p>
+        </footer>
 
 
         <script src="./script.js"></script>
