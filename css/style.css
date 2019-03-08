@@ -55,6 +55,48 @@ h2 {
     font-size: 2.5rem;
 }
 
+@media only screen and (min-width: 600px) and (max-width: 800px) {
+    h1 {
+        font-size: calc(40px + (64 - 40) * (100vw - 600px) / 200);
+    }
+
+    h2 {
+        font-size: calc(19.6px + (24 - 19.2) * (100vw - 600px) / 200);
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    h1 {
+        font-size: 2.5rem;
+    }
+
+    h2 {
+        font-size: 1.2rem;
+    }
+}
+
+@media only screen and (min-width: 300px) and (max-width: 600px) {
+    .formula-word  {
+        font-size: calc(16px + (20.8 - 16) * (100vw - 300px) / 300);
+        letter-spacing: calc(3.2px + (4.8 - 3.2) * (100vw - 600px) / 200);
+    }
+
+    .formula-symbol  {
+        font-size: calc(16px + (40 - 16) * (100vw - 300px) / 300);
+    }
+}
+
+@media only screen and (max-width: 300px) {
+    .formula-word  {
+        font-size: 1rem;
+        letter-spacing: 0.2rem;
+    }
+
+    .formula-symbol  {
+        font-size: 1rem;
+    }
+}
+
 sup, sub {
     position: relative;
     vertical-align: baseline;
@@ -81,7 +123,29 @@ footer p {
     color: grey;
     font-size: 0.9rem;
     text-align: center;
-    margin-bottom: 3rem; 
+    padding: 3rem 0;
+}
+
+@media only screen and (min-width: 600px) and (max-width: 1000px) {
+    .result-density {
+        font-size: calc(24px + (32 - 24) * (100vw - 600px) / 400);
+    }
+
+    footer p {
+        padding-bottom: calc(16px + (48 - 16) * (100vw - 600px) / 400);
+        padding-top: calc(16px + (48 - 16) * (100vw - 600px) / 400);
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .result-density {
+        font-size: 1.5rem;
+    }
+    
+    footer p {
+        padding-bottom: 1rem;
+        padding-top: 1rem;
+    }
 }
 
 
@@ -95,8 +159,12 @@ header {
     padding: 1rem;
 }
 
+main {
+    padding: 1rem 0;
+}
+
 .more-space {
-    margin: 3rem 6rem;
+    margin: 3rem 8rem;
 }
 
 .grid {
@@ -106,6 +174,41 @@ header {
     grid-template-columns: 1fr;
     grid-template-rows: auto 1fr;
     margin: 4rem 0;
+}
+
+@media only screen and (min-width: 600px) and (max-width: 1000px) {
+    .more-space {
+        margin-left: calc(128 * (100vw - 600px) / 400);
+        margin-right: calc(128 * (100vw - 600px) / 400);
+        margin-bottom: calc(16px + (48 - 16) * (100vw - 600px) / 400);
+        margin-top: calc(16px + (48 - 16) * (100vw - 600px) / 400);
+    }
+
+    .grid {
+        margin-bottom: calc(32px + (64 - 32) * (100vw - 600px) / 400);
+        margin-top: calc(32px + (64 - 32) * (100vw - 600px) / 400);
+    }
+
+    footer p {
+        padding-bottom: calc(16px + (48 - 16) * (100vw - 600px) / 400);
+        padding-top: calc(16px + (48 - 16) * (100vw - 600px) / 400);
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .more-space {
+        margin: 1rem 0;
+    }
+
+    .grid {
+        margin-bottom: 2rem;
+        margin-top: 2rem;
+    }
+
+    footer p {
+        padding-bottom: 1rem;
+        padding-top: 1rem;
+    }
 }
 
 .grid-top {
@@ -126,7 +229,6 @@ header {
 }
 
 @media only screen and (max-width: 800px) {
-
     .grid-top {
         grid-template-columns: auto auto auto auto auto;
     }
@@ -141,8 +243,3 @@ header {
 fieldset {
     border: none;
 };
-
-
-footer {
-    padding: 2rem 0;
-}

@@ -17,6 +17,7 @@ for (let i = 0; i < inputRadioButtons.length; i++) {
 
 // style submit button
 const submitButton = document.querySelector('button[type="submit"]');
+submitButton.style.border = 'none';
 submitButton.style.fontSize = '1rem';
 submitButton.style.height = '4rem';
 submitButton.style.margin = '0.5rem 0';
