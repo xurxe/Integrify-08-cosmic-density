@@ -1,39 +1,36 @@
+/* GENERAL *************************************************************************************************** */
+
 * {
     box-sizing: border-box;
     font-family: 'Montserrat Alternates', sans-serif;
     margin: 0;
     padding: 0;
-    text-decoration: none;
     scroll-behavior: smooth;
+    text-decoration: none;
 }
 
 html {
     color: white;
     font-size: 16px;
+    text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-font-smoothing: antialiased;
     -o-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    text-rendering: optimizeLegibility;
 }
 
 body {
     background-color: black;
-    width: 100%;
     line-height: 1.5;
-}
-
-header {
     padding: 1rem;
-    background-image: url("../assets/galaxy.jpg");
-    background-size: cover;
-    background-position: top;
-    margin: 1rem;
+    width: 100%;
 }
 
-main {
-    padding: 2rem;
+img {
+    width: 100%;
 }
+
+/* TYPOGRAPHY ************************************************************************************************ */
 
 h1 {
     font-family: 'Megrim', sans-serif;
@@ -46,11 +43,12 @@ h2 {
     font-size: 1.5rem;
     font-weight: normal; 
     text-align: center;
-    padding: 1rem 0 2rem;
 }
 
 .formula-word {
     font-size: 1.3rem;
+    font-weight: 700;
+    letter-spacing: 0.3rem;
 }
 
 .formula-symbol {
@@ -58,8 +56,8 @@ h2 {
 }
 
 sup, sub {
-    vertical-align: baseline;
     position: relative;
+    vertical-align: baseline;
 }
 
 sup{
@@ -70,38 +68,61 @@ sub {
     top: 0.4em; 
 }
 
-input[type=text] {
-    margin: 0.4rem 0;
+.result {
+    text-align: center;
 }
 
-fieldset {
-    border: none;
-    margin: 1rem 0;
-};
+.result-density {
+    font-size: 2rem;
+    padding: 3rem 0 1rem;
+}
+
+footer p {
+    color: grey;
+    font-size: 0.9rem;
+    text-align: center;
+    margin-bottom: 3rem; 
+}
+
+
+
+/* SECTIONS ************************************************************************************************** */
+
+header {
+    background-image: url("../assets/galaxy.jpg");
+    background-position: top;
+    background-size: cover;
+    padding: 1rem;
+}
+
+.more-space {
+    margin: 3rem 6rem;
+}
 
 .grid {
     display: grid;
     grid-auto-flow: column;
+    grid-row-gap: 2rem;
     grid-template-columns: 1fr;
     grid-template-rows: auto 1fr;
+    margin: 4rem 0;
 }
 
 .grid-top {
-    justify-items: center;
+    align-items: center;
     display: grid;
     grid-auto-flow: row;
     grid-template-columns: 1fr 5% 1fr 5% 0.8fr;
     grid-template-rows: 1fr;
-    margin: 0 0 2rem;
-    align-items: center;
+    justify-items: center;
 }
 
 .grid-bottom {
     display: grid;
     grid-auto-flow: row;
+    grid-column-gap: 1.5rem;
     grid-template-columns: 1fr 5% 1fr 5% 0.8fr;
     grid-template-rows: 1fr;
-    margin: 0 0 2rem;
 }
 
 @media only screen and (max-width: 800px) {
@@ -117,25 +138,11 @@ fieldset {
     }
 }
 
-.mass, .volume, .density {
-    margin: 0 2.5rem;
-}
+fieldset {
+    border: none;
+};
 
-.result {
-    text-align: center;
-}
 
-img {
-    width: 100%;
-}
-
-.result-density {
-    font-size: 2rem;
-    padding: 2rem;
-}
-
-footer p {
-    text-align: center;
-    margin: 1rem 0 3rem;
-    font-size: 0.9rem;
+footer {
+    padding: 2rem 0;
 }

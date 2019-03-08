@@ -14,110 +14,109 @@
         </header>
 
         <main>
+            <div class="more-space">
+                <h2>Objects&nbsp;have&nbsp;densities. Planets&nbsp;do&nbsp;too.</h2>
 
-            <h2>Objects&nbsp;have&nbsp;densities. Planets&nbsp;do&nbsp;too.</h2>
-
-            <div class="grid">
-                <div class="grid-top">
-                    <p class="formula formula-word">mass</p>
-                    <p class="formula formula-symbol">/</p>
-                    <p class="formula formula-word">volume</p>
-                    <p class="formula formula-symbol">=</p>
-                    <p class="formula formula-word">density</p>
-                </div>
-    
-                <div class="grid-bottom">
-                    <div class="mass">
-                        <div class="input-and-label">
-                            <label for= "inputMass">Enter mass value:</label>
-                            <input type="text" id="inputMass" name='inputMass' required>
-                        </div>
-            
-                        <fieldset>
-                            <legend>Select mass unit:</legend>
-                            <div class="input-and-label">
-                                <input type='radio' id="unitMassG" name="unitMass" value='1' checked>
-                                <label for= "unitMassG">g</label>
-                            </div>
-
-                            <div class="input-and-label">
-                                <input type='radio' id="unitMassKg" name="unitMass" value='1000'>
-                                <label for= "unitMassKg">kg</label>
-                            </div>
-
-                            <div class="input-and-label">
-                                <input type='radio' id="unitMassOz" name="unitMass" value='28.3495'>
-                                <label for= "unitMassG">oz</label>
-                            </div>
-
-                            <div class="input-and-label">
-                                <input type='radio' id="unitMassLb" name="unitMass" value='453.592'>
-                                <label for= "unitMassKg">lb</label>
-                            </div>
-
-                        </fieldset>
-                        
+                <section class="grid">
+                    <div class="grid-top">
+                        <p class="formula formula-word">mass</p>
+                        <p class="formula formula-symbol">/</p>
+                        <p class="formula formula-word">volume</p>
+                        <p class="formula formula-symbol">=</p>
+                        <p class="formula formula-word">density</p>
                     </div>
+        
+                    <div class="grid-bottom">
+                        <div class="mass">
+                            <fieldset>
+                                <label for= "inputMass">Enter mass value:</label>
+                                <input type="text" id="inputMass" name='inputMass' required>
+                            </fieldset>
+                
+                            <fieldset>
+                                <legend>Select mass unit:</legend>
+                                <div>
+                                    <input type='radio' id="unitMassG" name="unitMass" value='1' checked>
+                                    <label for= "unitMassG">g</label>
+                                </div>
 
-                    <div></div>
-            
-                    <div class="volume">
-                        <div class="input-and-label">
-                            <label for= "inputVolume">Enter volume value:</label>
-                            <input type="text" id="inputVolume" name='inputVolume' required>
+                                <div>
+                                    <input type='radio' id="unitMassKg" name="unitMass" value='1000'>
+                                    <label for= "unitMassKg">kg</label>
+                                </div>
+
+                                <div>
+                                    <input type='radio' id="unitMassOz" name="unitMass" value='28.3495'>
+                                    <label for= "unitMassG">oz</label>
+                                </div>
+
+                                <div>
+                                    <input type='radio' id="unitMassLb" name="unitMass" value='453.592'>
+                                    <label for= "unitMassKg">lb</label>
+                                </div>
+
+                            </fieldset>
+                            
                         </div>
-            
-                        <fieldset>
-                            <legend>Select volume unit:</legend>
 
-                            <div class="input-and-label">
-                                <input type='radio' id="unitVolumeCm3" name="unitVolume" value='1' checked>
-                                <label for= "unitVolumeCm3">cm<sup>3</sup></label>
-                            </div>
+                        <div></div>
                 
-                            <div class="input-and-label">
-                                <input type='radio' id="unitVolumeL" name="unitVolume" value='1000'>
-                                <label for= "unitVolumeL">L</label>
-                            </div>
+                        <div class="volume">
+                            <fielset>
+                                <label for= "inputVolume">Enter volume value:</label>
+                                <input type="text" id="inputVolume" name='inputVolume' required>
+                            </fielset>
                 
-                            <div class="input-and-label">
-                                <input type='radio' id="unitVolumeCm3" name="unitVolume" value='16.3871'>
-                                <label for= "unitVolumeCm3">in<sup>3</sup></label>
-                            </div>
-                
-                            <div class="input-and-label">
-                                <input type='radio' id="unitVolumeL" name="unitVolume" value='28316.8'>
-                                <label for= "unitVolumeL">ft<sup>3</sup></label>
-                            </div>
+                            <fieldset>
+                                <legend>Select volume unit:</legend>
 
-                        </fieldset>
+                                <div>
+                                    <input type='radio' id="unitVolumeCm3" name="unitVolume" value='1' checked>
+                                    <label for= "unitVolumeCm3">cm<sup>3</sup></label>
+                                </div>
                     
+                                <div>
+                                    <input type='radio' id="unitVolumeL" name="unitVolume" value='1000'>
+                                    <label for= "unitVolumeL">L</label>
+                                </div>
+                    
+                                <div>
+                                    <input type='radio' id="unitVolumeCm3" name="unitVolume" value='16.3871'>
+                                    <label for= "unitVolumeCm3">in<sup>3</sup></label>
+                                </div>
+                    
+                                <div>
+                                    <input type='radio' id="unitVolumeL" name="unitVolume" value='28316.8'>
+                                    <label for= "unitVolumeL">ft<sup>3</sup></label>
+                                </div>
+
+                            </fieldset>
+                        
+                        </div>
+                
+                        <div></div>
+
+                        <div class="density">
+                            <button type="submit" id="calculateDensityButton">Calculate density!</button>
+                            <button type="reset" value="Reset">clear</button>
+                            <p class= "result result-warning" id="warning"></p>
+                        </div>
                     </div>
-            
-                    <div></div>
+                </section>
 
-                    <div class="density">
-                        <button type="submit" id="calculateDensityButton">Calculate density!</button>
-                        <button type="reset" value="Reset">clear</button>
-                        <p class= "result result-warning" id="warning"></p>
-                    </div>
-    
-                </div>
-            </div>
+                <section class="results">
+                    <p class="result result-density" id="calculateDensityResult"></p>
+                    <p class="result result-planet" id="compareToPlanet"></p>
+                </section>
+            </div>  
 
-            <div class="results">
-                <p class="result result-density" id="calculateDensityResult"></p>
-                <p class="result result-planet" id="compareToPlanet"></p>
-                <img id="planetImage" src="./assets/solar-system.jpg"/>
-
-            </div>
+            <img id="planetImage" src="./assets/solar-system.jpg"/>
 
         </main>
 
         <footer>
             <p>by Xurxe Toivo García 2019</p>
         </footer>
-
 
         <script src="./script.js"></script>
     </body>

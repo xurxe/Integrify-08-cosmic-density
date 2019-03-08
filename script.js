@@ -1,40 +1,62 @@
 // style text fields
 const inputTextFields = document.querySelectorAll('input[type="text"]');
 for (let i = 0; i < inputTextFields.length; i++) {
-    inputTextFields[i].style.outline = 'none';
     inputTextFields[i].style.fontSize = '0.8rem';
-    inputTextFields[i].style.width = '100%';
+    inputTextFields[i].style.margin = '0.2rem 0 1.5rem';
+    inputTextFields[i].style.outline = 'none';
     inputTextFields[i].style.padding = '0.1rem 0.3rem';
+    inputTextFields[i].style.width = '100%';
 }
 
 // style radio buttons
 const inputRadioButtons = document.querySelectorAll('input[type="radio"]');
 for (let i = 0; i < inputRadioButtons.length; i++) {
+    inputRadioButtons[i].style.margin = '0.3rem 0.5rem 0 1rem';
     inputRadioButtons[i].style.outline = 'none';
-    inputRadioButtons[i].style.margin = '0 0.5rem 0 1rem';
 }
 
 // style submit button
 const submitButton = document.querySelector('button[type="submit"]');
 submitButton.style.fontSize = '1rem';
-submitButton.style.padding = '0 1rem';
-submitButton.style.width = '100%';
 submitButton.style.height = '4rem';
 submitButton.style.margin = '0.5rem 0';
 submitButton.style.outline = 'none';
-
+submitButton.style.padding = '0 1rem';
+submitButton.style.width = '100%';
 
 // style clear button
 const clearButton = document.querySelector('button[type="reset"]');
-clearButton.style.fontSize = '1rem';
-clearButton.style.padding = '0 1rem';
-clearButton.style.width = '100%';
-clearButton.style.height = '2.5rem';
-clearButton.style.margin = '1rem 0';
+clearButton.style.color = 'white';
 clearButton.style.background = 'none';
 clearButton.style.border = '1px solid white';
-clearButton.style.color = 'white';
+clearButton.style.fontSize = '1rem';
+clearButton.style.height = '2.5rem';
+clearButton.style.margin = '1rem 0';
 clearButton.style.outline = 'none';
+clearButton.style.padding = '0 1rem';
+clearButton.style.width = '100%';
+
+
+
+// select result paragraphs and planet image
+const result = document.querySelectorAll('.result');
+const planetImage = document.querySelector('#planetImage');
+
+
+
+// when clicking the clear-button, remove content from input boxes and result paragraphs, and reset planet image
+clearButton.addEventListener('click', function() {
+    for (let i = 0; i < inputTextFields.length; i++) {
+        inputTextFields[i].value = "";
+    }
+
+    for (let i = 0; i < result.length; i++) {
+        result[i].innerHTML = "";
+    }
+
+    planetImage.setAttribute('src', 'https://xurxe.github.io/Integrify-5b-cosmic-density/assets/solar-system.jpg');
+
+});
 
 
 
@@ -83,7 +105,6 @@ const planets = [
     },
 ]
 
-const densityEarth = 5.51;
 
 
 // define function to generate density ranges
@@ -137,12 +158,13 @@ calculateDensityButton.addEventListener('click', function() {
     const inputMass = document.querySelector('#inputMass');
     const inputVolume = document.querySelector('#inputVolume');
 
-    // terminate function if those fields contain anything other than 0 or positive numbers
+    // terminate function if those fields are empty
     if (inputMass.value == "" || inputVolume.value == "") {
         warning.innerHTML = 'Please fill out all fields.';
         return false;
     }
 
+    // terminate function if those fields contain anything other than positive numbers
     else if (!(inputMass.value > 0) || !(inputVolume.value > 0)) {
         warning.innerHTML = 'Please enter only positive numbers.';
         return false;
@@ -151,10 +173,14 @@ calculateDensityButton.addEventListener('click', function() {
     // select the mass unit of the radio button chosen by the user
     const unitMass = document.querySelector('input[name=unitMass]:checked');
 
-    // the mass is the value entered in the textbox multiplied by the unit multiplier
-    // (the default unit is g, so the multiplier is in terms of g. For example: 1 kg = 1000 g)
+    // the mass is the value entered by the user
     const mass = inputMass.value;
+
+    // the standard mass is the value entered in the textbox multiplied by the unit multiplier
+    // (the default unit is g, so the multiplier is in terms of g. For example: 1 kg = 1000 g)
     const massStandard = inputMass.value * unitMass.value;
+
+
 
     // do the same as above for the volume
     const unitVolume = document.querySelector('input[name=unitVolume]:checked');
@@ -163,8 +189,10 @@ calculateDensityButton.addEventListener('click', function() {
 
 
 
-    // calculate the density
+    // calculate the density (in the units selected by user)
     const density = mass / volume;
+
+    // calculate the standar density (in g / cm^3)
     const densityStandard = massStandard / volumeStandard;
 
 
@@ -181,6 +209,19 @@ calculateDensityButton.addEventListener('click', function() {
 
 
 
+    // write a sentence with the density of the object
+    // if the user chose standard units, give result in g/cm^3
+    if (unitMass.value == 1 && unitVolume.value == 1) {
+        calculateDensityResult.innerHTML = `The density of your object is ${density}&nbsp;g&nbsp;/&nbsp;cm<sup>3</sup>.`;
+    }
+
+    // if the user chose other units, give result in selected units as well as standard units
+    else {
+        calculateDensityResult.innerHTML = `The density of your object is ${density}&nbsp;${unitMassLabel}&nbsp;/&nbsp;${unitVolumeLabel} (${densityStandard}&nbsp;g&nbsp;/&nbsp;cm<sup>3</sup>).`;
+    }
+
+
+
     // loop through planets to find the planet closest in density
     for (i = 0; i < planets.length; i++) {
         if (planets[i].densityRange[0] <= densityStandard && densityStandard < planets[i].densityRange[1]) {
@@ -190,43 +231,24 @@ calculateDensityButton.addEventListener('click', function() {
         }
     }
 
+    // set planetImage to display that planer
+    planetImage.setAttribute('src', 'https://xurxe.github.io/Integrify-5b-cosmic-density/assets/' + planetName + '.jpg');
 
-    // write a sentence with the density of the object
+    // define the density of Earth
+    const densityEarth = 5.51;
 
-    if (unitMass.value == 1 && unitVolume.value == 1) {
-        calculateDensityResult.innerHTML = `The density of your object is ${density}&nbsp;${unitMassLabel}&nbsp;/&nbsp;${unitVolumeLabel}.`;
-    }
-
-    else {
-        calculateDensityResult.innerHTML = `The density of your object is ${density}&nbsp;${unitMassLabel}&nbsp;/&nbsp;${unitVolumeLabel} (${densityStandard}&nbsp;g&nbsp;/&nbsp;cm<sup>3</sup>).`;
-    }
-
-
-
-    // write a sentence comparing the density of the object to the density of that planet
-    if (densityStandard < 10){
+    // write a sentence comparing the density of the object to the density of the closest planet
+    // if the density is less than twice the densest planet (Earth), display this:
+    if (densityStandard < densityEarth * 2){
         compareToPlanet.innerHTML = `This is closest to the density of ${planetName}, which is ${planetDensity} g&nbsp;/&nbsp;cm<sup>3</sup>.`;
     }
     
+    // if the density is more than twice the densest planet (Earth), display this:
     else {
         let x = Math.round(densityStandard / densityEarth);
         compareToPlanet.innerHTML = `This is about ${x} times denser than the densest planet in our solar system - Earth!`;
     }
 
-    planetImage.setAttribute('src', 'https://xurxe.github.io/Integrify-5b-cosmic-density/assets/' + planetName + '.jpg');
+    // scroll to show the planet and result text
     calculateDensityResult.scrollIntoView();
-
-});
-
-
-
-// when clicking the clear-button, remove content from input boxes and result paragraphs
-clearButton.addEventListener('click', function() {
-    for (let i = 0; i < inputTextFields.length; i++) {
-        inputTextFields[i].value = "";
-    }
-
-    for (let i = 0; i < result.length; i++) {
-        result[i].innerHTML = "";
-    }
 });
