@@ -114,6 +114,11 @@ sub {
     text-align: center;
 }
 
+.result-warning {
+    padding: 1rem 0;
+    height: 3.5rem;
+}
+
 .result-density {
     font-size: 2rem;
     padding: 3rem 0 1rem;
@@ -129,22 +134,22 @@ footer p {
 @media only screen and (min-width: 600px) and (max-width: 1000px) {
     .result-density {
         font-size: calc(24px + (32 - 24) * (100vw - 600px) / 400);
+        padding-top: calc(16px + (48 - 16) * (100vw - 600px) / 400);
     }
 
     footer p {
         padding-bottom: calc(16px + (48 - 16) * (100vw - 600px) / 400);
-        padding-top: calc(16px + (48 - 16) * (100vw - 600px) / 400);
     }
 }
 
 @media only screen and (max-width: 600px) {
     .result-density {
         font-size: 1.5rem;
+        padding-top: 1rem;
     }
     
     footer p {
         padding-bottom: 1rem;
-        padding-top: 1rem;
     }
 }
 
@@ -185,13 +190,8 @@ main {
     }
 
     .grid {
-        margin-bottom: calc(32px + (64 - 32) * (100vw - 600px) / 400);
+        margin-bottom: calc(16px + (64 - 16) * (100vw - 600px) / 400);
         margin-top: calc(32px + (64 - 32) * (100vw - 600px) / 400);
-    }
-
-    footer p {
-        padding-bottom: calc(16px + (48 - 16) * (100vw - 600px) / 400);
-        padding-top: calc(16px + (48 - 16) * (100vw - 600px) / 400);
     }
 }
 
@@ -201,13 +201,8 @@ main {
     }
 
     .grid {
-        margin-bottom: 2rem;
+        margin-bottom: 1rem;
         margin-top: 2rem;
-    }
-
-    footer p {
-        padding-bottom: 1rem;
-        padding-top: 1rem;
     }
 }
 

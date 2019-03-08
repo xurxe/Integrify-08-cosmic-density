@@ -3,27 +3,33 @@ const inputTextFields = document.querySelectorAll('input[type="text"]');
 for (let i = 0; i < inputTextFields.length; i++) {
     inputTextFields[i].style.fontSize = '0.8rem';
     inputTextFields[i].style.margin = '0.2rem 0 1.5rem';
-    inputTextFields[i].style.outline = 'none';
-    inputTextFields[i].style.padding = '0.1rem 0.3rem';
+/*     inputTextFields[i].style.outline = 'none'; */
+    inputTextFields[i].style.padding = '0.4rem 0.6rem';
     inputTextFields[i].style.width = '100%';
 }
+
+
 
 // style radio buttons
 const inputRadioButtons = document.querySelectorAll('input[type="radio"]');
 for (let i = 0; i < inputRadioButtons.length; i++) {
     inputRadioButtons[i].style.margin = '0.3rem 0.5rem 0 1rem';
-    inputRadioButtons[i].style.outline = 'none';
-}
+/*     inputRadioButtons[i].style.outline = 'none'; */
+};
+
+
 
 // style submit button
 const submitButton = document.querySelector('button[type="submit"]');
 submitButton.style.border = 'none';
 submitButton.style.fontSize = '1rem';
-submitButton.style.height = '4rem';
+submitButton.style.height = '4.5rem';
 submitButton.style.margin = '0.5rem 0';
-submitButton.style.outline = 'none';
+/* submitButton.style.outline = 'none'; */
 submitButton.style.padding = '0 1rem';
 submitButton.style.width = '100%';
+
+
 
 // style clear button
 const clearButton = document.querySelector('button[type="reset"]');
@@ -33,7 +39,7 @@ clearButton.style.border = '1px solid white';
 clearButton.style.fontSize = '1rem';
 clearButton.style.height = '2.5rem';
 clearButton.style.margin = '1rem 0';
-clearButton.style.outline = 'none';
+/* clearButton.style.outline = 'none'; */
 clearButton.style.padding = '0 1rem';
 clearButton.style.width = '100%';
 
@@ -46,6 +52,10 @@ const planetImage = document.querySelector('#planetImage');
 
 
 // when clicking the clear-button, remove content from input boxes and result paragraphs, and reset planet image
+function clearContents() {
+    
+}
+
 clearButton.addEventListener('click', function() {
     for (let i = 0; i < inputTextFields.length; i++) {
         inputTextFields[i].value = "";
@@ -56,6 +66,8 @@ clearButton.addEventListener('click', function() {
     }
 
     planetImage.setAttribute('src', 'https://xurxe.github.io/Integrify-5b-cosmic-density/assets/solar-system.jpg');
+
+    planetImage.setAttribute('alt', 'An illustration of our solar system.')
 
 });
 
@@ -159,15 +171,33 @@ calculateDensityButton.addEventListener('click', function() {
     const inputMass = document.querySelector('#inputMass');
     const inputVolume = document.querySelector('#inputVolume');
 
-    // terminate function if those fields are empty
+    // reset results, reset image, display warning, and terminate function if those fields are empty
     if (inputMass.value == "" || inputVolume.value == "") {
+        for (let i = 0; i < result.length; i++) {
+            result[i].innerHTML = "";
+        }
+    
+        planetImage.setAttribute('src', 'https://xurxe.github.io/Integrify-5b-cosmic-density/assets/solar-system.jpg');
+    
+        planetImage.setAttribute('alt', 'An illustration of our solar system.')
+
         warning.innerHTML = 'Please fill out all fields.';
+
         return false;
     }
 
-    // terminate function if those fields contain anything other than positive numbers
+    // reset results, reset image, display warning, and terminate function if those fields contain anything other than positive numbers
     else if (!(inputMass.value > 0) || !(inputVolume.value > 0)) {
+        for (let i = 0; i < result.length; i++) {
+            result[i].innerHTML = "";
+        }
+    
+        planetImage.setAttribute('src', 'https://xurxe.github.io/Integrify-5b-cosmic-density/assets/solar-system.jpg');
+    
+        planetImage.setAttribute('alt', 'An illustration of our solar system.')
+
         warning.innerHTML = 'Please enter only positive numbers.';
+
         return false;
     }
 
@@ -232,8 +262,12 @@ calculateDensityButton.addEventListener('click', function() {
         }
     }
 
-    // set planetImage to display that planer
+    // set planetImage to display that planet and adjust alt text accordingly
     planetImage.setAttribute('src', 'https://xurxe.github.io/Integrify-5b-cosmic-density/assets/' + planetName + '.jpg');
+
+    planetImage.setAttribute('alt', 'A photo of' + planetName);
+
+
 
     // define the density of Earth
     const densityEarth = 5.51;

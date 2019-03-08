@@ -8,7 +8,9 @@
         <link href="https://fonts.googleapis.com/css?family=Megrim|Montserrat+Alternates" rel="stylesheet">
         <link href="./css/style.css" rel="stylesheet" />
     </head>
+
     <body>
+
         <header>
             <h1>COSMIC  DENSITY  CALCULATOR</h1>
         </header>
@@ -47,16 +49,14 @@
 
                                 <div>
                                     <input type='radio' id="unitMassOz" name="unitMass" value='28.3495'>
-                                    <label for= "unitMassG">oz</label>
+                                    <label for= "unitMassOz">oz</label>
                                 </div>
 
                                 <div>
                                     <input type='radio' id="unitMassLb" name="unitMass" value='453.592'>
-                                    <label for= "unitMassKg">lb</label>
+                                    <label for= "unitMassLb">lb</label>
                                 </div>
-
                             </fieldset>
-                            
                         </div>
 
                         <div></div>
@@ -81,25 +81,23 @@
                                 </div>
                     
                                 <div>
-                                    <input type='radio' id="unitVolumeCm3" name="unitVolume" value='16.3871'>
-                                    <label for= "unitVolumeCm3">in<sup>3</sup></label>
+                                    <input type='radio' id="unitVolumeIn3" name="unitVolume" value='16.3871'>
+                                    <label for= "unitVolumeIn3">in<sup>3</sup></label>
                                 </div>
                     
                                 <div>
-                                    <input type='radio' id="unitVolumeL" name="unitVolume" value='28316.8'>
-                                    <label for= "unitVolumeL">ft<sup>3</sup></label>
+                                    <input type='radio' id="unitVolumeFt3" name="unitVolume" value='28316.8'>
+                                    <label for= "unitVolumeFt3">ft<sup>3</sup></label>
                                 </div>
-
                             </fieldset>
-                        
                         </div>
                 
                         <div></div>
 
                         <div class="density">
                             <button type="submit" id="calculateDensityButton">Calculate density!</button>
-                            <button type="reset" value="Reset">clear</button>
                             <p class= "result result-warning" id="warning"></p>
+                            <button type="reset" value="Reset" id="resetButton">clear</button>
                         </div>
                     </div>
                 </section>
@@ -118,6 +116,6 @@
             <p>by Xurxe Toivo García (2019)</p>
         </footer>
 
-        <script src="./script.js"></script>
+        <script src="../js/script.js"></script>
     </body>
 </html>
