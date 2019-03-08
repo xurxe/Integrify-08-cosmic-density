@@ -213,7 +213,7 @@ calculateDensityButton.addEventListener('click', function() {
         compareToPlanet.innerHTML = `This is about ${x} times denser than the densest planet in our solar system - Earth!`;
     }
 
-    planetImage.setAttribute('src', './assets/' + planetName + '.jpg');
+    planetImage.setAttribute('src', 'https://xurxe.github.io/Integrify-5b-cosmic-density/assets/' + planetName + '.jpg');
     calculateDensityResult.scrollIntoView();
 
 });
