@@ -1,7 +1,7 @@
 // style text fields
 const inputTextFields = document.querySelectorAll('input[type="text"]');
 for (let i = 0; i < inputTextFields.length; i++) {
-    inputTextFields[i].style.fontSize = '0.8rem';
+    inputTextFields[i].style.fontSize = '1rem';
     inputTextFields[i].style.margin = '0.2rem 0 1.5rem';
     inputTextFields[i].style.padding = '0.4rem 0.6rem';
     inputTextFields[i].style.width = '100%';
@@ -9,17 +9,8 @@ for (let i = 0; i < inputTextFields.length; i++) {
 
 
 
-// style radio buttons
-const inputRadioButtons = document.querySelectorAll('input[type="radio"]');
-for (let i = 0; i < inputRadioButtons.length; i++) {
-    inputRadioButtons[i].style.margin = '0.3rem 0.5rem 0 1rem';
-};
-
-
-
 // style submit button
 const submitButton = document.querySelector('button[type="submit"]');
-submitButton.style.border = 'none';
 submitButton.style.fontSize = '1rem';
 submitButton.style.height = '4.5rem';
 submitButton.style.margin = '0.5rem 0';
@@ -30,9 +21,7 @@ submitButton.style.width = '100%';
 
 // style clear button
 const clearButton = document.querySelector('button[type="reset"]');
-clearButton.style.color = 'white';
 clearButton.style.background = 'none';
-clearButton.style.border = '1px solid white';
 clearButton.style.fontSize = '1rem';
 clearButton.style.height = '2.5rem';
 clearButton.style.margin = '1rem 0';

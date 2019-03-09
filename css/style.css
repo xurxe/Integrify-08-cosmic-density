@@ -1,5 +1,4 @@
 /* GENERAL *************************************************************************************************** */
-
 * {
     box-sizing: border-box;
     font-family: 'Montserrat Alternates', sans-serif;
@@ -29,6 +28,8 @@ body {
 img {
     width: 100%;
 }
+
+
 
 /* TYPOGRAPHY ************************************************************************************************ */
 
@@ -235,6 +236,114 @@ main {
     }
 }
 
+
+
+/* INPUT ************************************************************************************************** */
+
 fieldset {
     border: none;
 };
+
+/* for some reason this needs to be precisely here in order for the positioning to work */
+input[type="radio"] {
+    position: absolute;
+}
+  
+input[type="radio"] + label {
+    position: relative;
+}
+
+input[type="radio"] + label::before {
+    content: '';
+    position: relative;
+    top: 5px;
+    display: inline-block;
+    margin-right: 10px;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    border: 2px solid white;
+}
+
+/* input[type="radio"]:checked + label::after {
+    content: '';
+    position: absolute;
+    top: 6px;
+    left: 6px;
+    height: 8px;
+    width: 8px;
+    background-color: white;
+    border-radius: 50%;
+}
+
+input[type="radio"]:focus + label::before {
+    border: 1px solid var(--purple);
+} */
+
+input[type="radio"]:checked + label::after {
+    content: '';
+    position: absolute;
+    top: 6px;
+    left: 6px;
+    height: 8px;
+    width: 8px;
+    background-color: white;
+    border-radius: 50%;
+}
+
+input[type="radio"]:focus + label::after {
+    content: '';
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    height: 4px;
+    width: 4px;
+    background-color: white;
+    border-radius: 50%;
+}
+
+/* for some reason this needs to be precisely here in order to hide the default radio buttons */
+input[type="radio"] { 
+    position: absolute;
+    height: 1px; 
+    width: 1px;
+    overflow: hidden;
+    clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+    clip: rect(1px, 1px, 1px, 1px);
+}
+
+input[type="text"] {
+    transition: all 0.5s ease;
+    border: 2px solid white;
+}
+
+input[type="text"]:focus {
+    outline: none;
+    border: 2px solid white;
+    color: white;
+    background: none;
+    transition: all 0.5s ease;
+}
+
+button[type="submit"] {
+    background: white;
+    border: 3px solid black;
+    outline: 2px solid black;
+}
+
+button[type="submit"]:focus, button[type="submit"]:hover {
+    outline: 2px solid white;
+    transition: all 0.5s ease;
+}
+
+button[type="reset"] {
+    color: grey;
+    border: 1px solid grey;
+}
+
+button[type="reset"]:focus, button[type="reset"]:hover {
+    color: white;
+    border: 1px solid white;
+    outline: none;
+    transition: all 0.5s ease;
+}
