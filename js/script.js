@@ -3,7 +3,6 @@ const inputTextFields = document.querySelectorAll('input[type="text"]');
 for (let i = 0; i < inputTextFields.length; i++) {
     inputTextFields[i].style.fontSize = '0.8rem';
     inputTextFields[i].style.margin = '0.2rem 0 1.5rem';
-/*     inputTextFields[i].style.outline = 'none'; */
     inputTextFields[i].style.padding = '0.4rem 0.6rem';
     inputTextFields[i].style.width = '100%';
 }
@@ -14,7 +13,6 @@ for (let i = 0; i < inputTextFields.length; i++) {
 const inputRadioButtons = document.querySelectorAll('input[type="radio"]');
 for (let i = 0; i < inputRadioButtons.length; i++) {
     inputRadioButtons[i].style.margin = '0.3rem 0.5rem 0 1rem';
-/*     inputRadioButtons[i].style.outline = 'none'; */
 };
 
 
@@ -25,7 +23,6 @@ submitButton.style.border = 'none';
 submitButton.style.fontSize = '1rem';
 submitButton.style.height = '4.5rem';
 submitButton.style.margin = '0.5rem 0';
-/* submitButton.style.outline = 'none'; */
 submitButton.style.padding = '0 1rem';
 submitButton.style.width = '100%';
 
@@ -39,7 +36,6 @@ clearButton.style.border = '1px solid white';
 clearButton.style.fontSize = '1rem';
 clearButton.style.height = '2.5rem';
 clearButton.style.margin = '1rem 0';
-/* clearButton.style.outline = 'none'; */
 clearButton.style.padding = '0 1rem';
 clearButton.style.width = '100%';
 

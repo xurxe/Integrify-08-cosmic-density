@@ -3,7 +3,7 @@
 Enter the mass and volume of a object; this calculator tells you the density of your object, and how it compares to the density of the planets in our solar system.
 
 As a class, were initially tasked with making a BMI (body mass index) calculator. However, I object to the concept of BMI on an ethical and scientific level, so I came up with an alternative assignment to practice the same skills:
-- Practicing JS and DOM
+- JS and DOM
 - Letting the user enter two number values
 - Using a function to perform a calculation based on those two values
 - Categorizing the result according to value ranges
