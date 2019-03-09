@@ -7,8 +7,6 @@ for (let i = 0; i < inputTextFields.length; i++) {
     inputTextFields[i].style.width = '100%';
 }
 
-
-
 // style submit button
 const submitButton = document.querySelector('button[type="submit"]');
 submitButton.style.fontSize = '1rem';
@@ -16,8 +14,6 @@ submitButton.style.height = '4.5rem';
 submitButton.style.margin = '0.5rem 0';
 submitButton.style.padding = '0 1rem';
 submitButton.style.width = '100%';
-
-
 
 // style clear button
 const clearButton = document.querySelector('button[type="reset"]');
@@ -28,8 +24,6 @@ clearButton.style.margin = '1rem 0';
 clearButton.style.padding = '0 1rem';
 clearButton.style.width = '100%';
 
-
-
 // select result paragraphs and planet image
 const result = document.querySelectorAll('.result');
 const planetImage = document.querySelector('#planetImage');
@@ -37,10 +31,6 @@ const planetImage = document.querySelector('#planetImage');
 
 
 // when clicking the clear-button, remove content from input boxes and result paragraphs, and reset planet image
-function clearContents() {
-    
-}
-
 clearButton.addEventListener('click', function() {
     for (let i = 0; i < inputTextFields.length; i++) {
         inputTextFields[i].value = "";
@@ -53,7 +43,6 @@ clearButton.addEventListener('click', function() {
     planetImage.setAttribute('src', 'https://xurxe.github.io/Integrify-5b-cosmic-density/assets/solar-system.jpg');
 
     planetImage.setAttribute('alt', 'An illustration of our solar system.')
-
 });
 
 
@@ -206,13 +195,59 @@ calculateDensityButton.addEventListener('click', function() {
 
 
     // calculate the density (in the units selected by user)
-    const density = mass / volume;
+    let density = mass / volume;
+
+    // if it's a round number, keep as-is
+    if (density === Math.round(density)) {
+        density = density;
+    }
+
+    // if it's a decimal number more than 1, give two decimal figures
+    else if (density > 1) {
+        density = density.toFixed(2);
+    }
+
+    // if it's a decimal number less than 1, give two significant figures
+    else {
+        density = density.toPrecision(2);
+    }
+
+
 
     // calculate the standar density (in g / cm^3)
-    const densityStandard = massStandard / volumeStandard;
+    let densityStandard = massStandard / volumeStandard;
+
+    // modify as above
+    if (densityStandard === Math.round(densityStandard)) {
+        densityStandard = densityStandard;
+    }
+
+    else if (densityStandard > 1) {
+        densityStandard = densityStandard.toFixed(2);
+    }
+
+    else {
+        densityStandard = densityStandard.toPrecision(2);
+    }
 
 
 
+    // loop through planets to find the planet closest in density
+    for (i = 0; i < planets.length; i++) {
+        if (planets[i].densityRange[0] <= densityStandard && densityStandard < planets[i].densityRange[1]) {
+            planetName = planets[i].name;
+            planetDensity = planets[i].density;
+            break;
+        }
+    }
+
+    // set planetImage to display that planet and adjust alt text accordingly
+    planetImage.setAttribute('src', 'https://xurxe.github.io/Integrify-5b-cosmic-density/assets/' + planetName + '.jpg');
+
+    planetImage.setAttribute('alt', 'A photo of' + planetName);
+
+
+        
     // get the ID of the mass unit selected by the user
     const unitMassId = unitMass.getAttribute('id');
 
@@ -238,37 +273,31 @@ calculateDensityButton.addEventListener('click', function() {
 
 
 
-    // loop through planets to find the planet closest in density
-    for (i = 0; i < planets.length; i++) {
-        if (planets[i].densityRange[0] <= densityStandard && densityStandard < planets[i].densityRange[1]) {
-            planetName = planets[i].name;
-            planetDensity = planets[i].density;
-            break;
-        }
-    }
-
-    // set planetImage to display that planet and adjust alt text accordingly
-    planetImage.setAttribute('src', 'https://xurxe.github.io/Integrify-5b-cosmic-density/assets/' + planetName + '.jpg');
-
-    planetImage.setAttribute('alt', 'A photo of' + planetName);
-
-
-
-    // define the density of Earth
+    // define the density of the least and most dense planets
+    const densitySaturn = 0.69;
     const densityEarth = 5.51;
 
     // write a sentence comparing the density of the object to the density of the closest planet
-    // if the density is less than twice the densest planet (Earth), display this:
-    if (densityStandard < densityEarth * 2){
+    // if the density is less than half the least dense planet (Saturn), display this:
+    if (densityStandard < densitySaturn / 2){
+        let x = Math.round(densitySaturn / densityStandard);
+        compareToPlanet.innerHTML = `This is about ${x} times less dense than the least dense planet in our solar system - Saturn!`;
+    }
+    
+    // if the density is more than half the least dense planet (Saturn), but less than twice the densest planet (Earth) display this:
+
+    else if (densityStandard < densityEarth * 2){
         compareToPlanet.innerHTML = `This is closest to the density of ${planetName}, which is ${planetDensity} g&nbsp;/&nbsp;cm<sup>3</sup>.`;
     }
     
     // if the density is more than twice the densest planet (Earth), display this:
     else {
-        let x = Math.round(densityStandard / densityEarth);
-        compareToPlanet.innerHTML = `This is about ${x} times denser than the densest planet in our solar system - Earth!`;
+        let y = Math.round(densityStandard / densityEarth);
+        compareToPlanet.innerHTML = `This is about ${y} times denser than the densest planet in our solar system - Earth!`;
     }
 
+
+    
     // scroll to show the planet and result text
     calculateDensityResult.scrollIntoView();
 });

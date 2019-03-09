@@ -117,7 +117,7 @@ sub {
 
 .result-warning {
     padding: 1rem 0;
-    height: 3.5rem;
+    height: 4.5rem;
 }
 
 .result-density {
@@ -125,11 +125,24 @@ sub {
     padding: 3rem 0 1rem;
 }
 
-footer p {
+footer a {
     color: grey;
+    display: block;
     font-size: 0.9rem;
     text-align: center;
+    transition: color 0.5s ease;
     padding: 3rem 0;
+    -moz-transition: color 0.5s ease;
+    -o-transition: color 0.5s ease;
+    -webkit-transition: color 0.5s ease;
+}
+
+footer a:hover {
+    color: white;
+    transition: color 0.5s ease;
+    -moz-transition: color 0.5s ease;
+    -o-transition: color 0.5s ease;
+    -webkit-transition: color 0.5s ease;
 }
 
 @media only screen and (min-width: 600px) and (max-width: 1000px) {
@@ -138,7 +151,7 @@ footer p {
         padding-top: calc(16px + (48 - 16) * (100vw - 600px) / 400);
     }
 
-    footer p {
+    footer a {
         padding-bottom: calc(16px + (48 - 16) * (100vw - 600px) / 400);
     }
 }
@@ -149,7 +162,7 @@ footer p {
         padding-top: 1rem;
     }
     
-    footer p {
+    footer a {
         padding-bottom: 1rem;
     }
 }
@@ -244,13 +257,33 @@ fieldset {
     border: none;
 };
 
-/* for some reason this needs to be precisely here in order for the positioning to work */
+input[type="text"] {
+    transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    -webkit-transition: all 0.5s ease;
+    border: 2px solid white;
+}
+
+input[type="text"]:focus, input[type="text"]:hover {
+    outline: none;
+    border: 2px solid white;
+    color: white;
+    background: none;
+    transition: background 0.5s ease;
+    -moz-transition: background 0.5s ease;
+    -o-transition: background 0.5s ease;
+    -webkit-transition: background 0.5s ease;
+}
+
+/* for some reason this needs to be precisely here in order for the positioning below to work */
 input[type="radio"] {
     position: absolute;
 }
   
 input[type="radio"] + label {
     position: relative;
+    cursor: pointer;
 }
 
 input[type="radio"] + label::before {
@@ -265,20 +298,16 @@ input[type="radio"] + label::before {
     border: 2px solid white;
 }
 
-/* input[type="radio"]:checked + label::after {
+input[type="radio"]:focus + label::after, input[type="radio"]:hover + label::after {
     content: '';
     position: absolute;
-    top: 6px;
-    left: 6px;
-    height: 8px;
-    width: 8px;
+    top: 8px;
+    left: 8px;
+    height: 4px;
+    width: 4px;
     background-color: white;
     border-radius: 50%;
 }
-
-input[type="radio"]:focus + label::before {
-    border: 1px solid var(--purple);
-} */
 
 input[type="radio"]:checked + label::after {
     content: '';
@@ -287,17 +316,6 @@ input[type="radio"]:checked + label::after {
     left: 6px;
     height: 8px;
     width: 8px;
-    background-color: white;
-    border-radius: 50%;
-}
-
-input[type="radio"]:focus + label::after {
-    content: '';
-    position: absolute;
-    top: 8px;
-    left: 8px;
-    height: 4px;
-    width: 4px;
     background-color: white;
     border-radius: 50%;
 }
@@ -312,33 +330,31 @@ input[type="radio"] {
     clip: rect(1px, 1px, 1px, 1px);
 }
 
-input[type="text"] {
-    transition: all 0.5s ease;
-    border: 2px solid white;
-}
-
-input[type="text"]:focus {
-    outline: none;
-    border: 2px solid white;
-    color: white;
-    background: none;
-    transition: all 0.5s ease;
-}
-
 button[type="submit"] {
     background: white;
     border: 3px solid black;
     outline: 2px solid black;
+    transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    -webkit-transition: all 0.5s ease;
 }
 
 button[type="submit"]:focus, button[type="submit"]:hover {
-    outline: 2px solid white;
+    outline: 1px solid white;
     transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    -webkit-transition: all 0.5s ease;
 }
 
 button[type="reset"] {
     color: grey;
     border: 1px solid grey;
+    transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    -webkit-transition: all 0.5s ease;
 }
 
 button[type="reset"]:focus, button[type="reset"]:hover {
@@ -346,4 +362,7 @@ button[type="reset"]:focus, button[type="reset"]:hover {
     border: 1px solid white;
     outline: none;
     transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    -webkit-transition: all 0.5s ease;
 }
