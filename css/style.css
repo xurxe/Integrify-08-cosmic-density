@@ -1,4 +1,4 @@
-/* GENERAL *************************************************************************************************** */
+/* GENERAL ************************************************************** */
 * {
     box-sizing: border-box;
     font-family: 'Montserrat Alternates', sans-serif;
@@ -6,21 +6,15 @@
     padding: 0;
     scroll-behavior: smooth;
     text-decoration: none;
-}
-
-html {
-    color: white;
-    font-size: 16px;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-font-smoothing: antialiased;
-    -o-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    -o-font-smoothing: antialiased;
 }
 
 body {
     background-color: black;
-    line-height: 1.5;
     padding: 1rem;
     width: 100%;
 }
@@ -31,8 +25,16 @@ img {
 
 
 
-/* TYPOGRAPHY ************************************************************************************************ */
+/* TYPOGRAPHY ************************************************************** */
 
+/* root font fixed */
+html {
+    color: white;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+/* h1 and h2 responsive (changing points: 600px and 800px */
 h1 {
     font-family: 'Megrim', sans-serif;
     font-size: 4rem;
@@ -46,23 +48,13 @@ h2 {
     text-align: center;
 }
 
-.formula-word {
-    font-size: 1.3rem;
-    font-weight: 700;
-    letter-spacing: 0.3rem;
-}
-
-.formula-symbol {
-    font-size: 2.5rem;
-}
-
 @media only screen and (min-width: 600px) and (max-width: 800px) {
     h1 {
-        font-size: calc(40px + (64 - 40) * (100vw - 600px) / 200);
+        font-size: calc(40px + (64 - 40) * (100vw - 600px) / (800 - 600));
     }
 
     h2 {
-        font-size: calc(19.6px + (24 - 19.2) * (100vw - 600px) / 200);
+        font-size: calc(19.6px + (24 - 19.2) * (100vw - 600px) / (800 - 600));
     }
 }
 
@@ -76,14 +68,25 @@ h2 {
     }
 }
 
+/* formula responsive (changing points: 300px and 600px */
+.formula-word {
+    font-size: 1.3rem;
+    font-weight: 700;
+    letter-spacing: 0.3rem;
+}
+
+.formula-symbol {
+    font-size: 2.5rem;
+}
+
 @media only screen and (min-width: 300px) and (max-width: 600px) {
     .formula-word  {
-        font-size: calc(16px + (20.8 - 16) * (100vw - 300px) / 300);
-        letter-spacing: calc(3.2px + (4.8 - 3.2) * (100vw - 600px) / 200);
+        font-size: calc(16px + (20.8 - 16) * (100vw - 300px) / (600 - 300));
+        letter-spacing: calc(3.2px + (4.8 - 3.2) * (100vw - 600px) / (600 - 300));
     }
 
     .formula-symbol  {
-        font-size: calc(16px + (40 - 16) * (100vw - 300px) / 300);
+        font-size: calc(16px + (40 - 16) * (100vw - 300px) / (600 - 300));
     }
 }
 
@@ -98,6 +101,7 @@ h2 {
     }
 }
 
+/* ensure that subscript and superscript doesn't mess up line height */
 sup, sub {
     position: relative;
     vertical-align: baseline;
@@ -111,15 +115,18 @@ sub {
     top: 0.4em; 
 }
 
+/* center all results */
 .result {
     text-align: center;
 }
 
+/* display when user enters invalid input */
 .result-warning {
     padding: 1rem 0;
     height: 4.5rem;
 }
 
+/* display when user enters valid input */
 .result-density {
     font-size: 2rem;
     padding: 3rem 0 1rem;
@@ -129,15 +136,17 @@ footer a {
     color: grey;
     display: block;
     font-size: 0.9rem;
+    margin: 2rem 0;
+    outline: none;
+    padding: 1rem 0;
     text-align: center;
     transition: color 0.5s ease;
-    padding: 3rem 0;
     -moz-transition: color 0.5s ease;
     -o-transition: color 0.5s ease;
     -webkit-transition: color 0.5s ease;
 }
 
-footer a:hover {
+footer a:hover, footer a:focus {
     color: white;
     transition: color 0.5s ease;
     -moz-transition: color 0.5s ease;
@@ -147,12 +156,12 @@ footer a:hover {
 
 @media only screen and (min-width: 600px) and (max-width: 1000px) {
     .result-density {
-        font-size: calc(24px + (32 - 24) * (100vw - 600px) / 400);
-        padding-top: calc(16px + (48 - 16) * (100vw - 600px) / 400);
+        font-size: calc(24px + (32 - 24) * (100vw - 600px) / (1000 - 600));
+        padding-top: calc(16px + (48 - 16) * (100vw - 600px) / (1000 - 600));
     }
 
     footer a {
-        padding-bottom: calc(16px + (48 - 16) * (100vw - 600px) / 400);
+        padding-bottom: calc(16px + (48 - 16) * (100vw - 600px) / (1000 - 600));
     }
 }
 
@@ -169,7 +178,7 @@ footer a:hover {
 
 
 
-/* SECTIONS ************************************************************************************************** */
+/* SECTIONS **************************************************************** */
 
 header {
     background-image: url("../assets/galaxy.jpg");
@@ -182,10 +191,14 @@ main {
     padding: 1rem 0;
 }
 
+/* more-space and grid responsive (changing points: 600px and 1000px) */
+
+/* more-space applies to everything on main except for the planet picture */
 .more-space {
     margin: 3rem 8rem;
 }
 
+/* grid contains the formula and input */
 .grid {
     display: grid;
     grid-auto-flow: column;
@@ -197,15 +210,15 @@ main {
 
 @media only screen and (min-width: 600px) and (max-width: 1000px) {
     .more-space {
-        margin-left: calc(128 * (100vw - 600px) / 400);
+        margin-top: calc(16px + (48 - 16) * (100vw - 600px) / (1000 - 600));
         margin-right: calc(128 * (100vw - 600px) / 400);
-        margin-bottom: calc(16px + (48 - 16) * (100vw - 600px) / 400);
-        margin-top: calc(16px + (48 - 16) * (100vw - 600px) / 400);
+        margin-bottom: calc(16px + (48 - 16) * (100vw - 600px) / (1000 - 600));
+        margin-left: calc(128 * (100vw - 600px) / 400);
     }
 
     .grid {
-        margin-bottom: calc(16px + (64 - 16) * (100vw - 600px) / 400);
-        margin-top: calc(32px + (64 - 32) * (100vw - 600px) / 400);
+        margin-top: calc(32px + (64 - 32) * (100vw - 600px) / (1000 - 600));
+        margin-bottom: calc(16px + (64 - 16) * (100vw - 600px) / (1000 - 600));
     }
 }
 
@@ -215,11 +228,14 @@ main {
     }
 
     .grid {
-        margin-bottom: 1rem;
         margin-top: 2rem;
+        margin-bottom: 1rem;
     }
 }
 
+/* grid-top and grid-bottom responsive (changing point: 800px) */
+
+/* grid-top is formula */
 .grid-top {
     align-items: center;
     display: grid;
@@ -229,6 +245,7 @@ main {
     justify-items: center;
 }
 
+/* grid-bottom is input */
 .grid-bottom {
     display: grid;
     grid-auto-flow: row;
@@ -251,32 +268,33 @@ main {
 
 
 
-/* INPUT ************************************************************************************************** */
+/* INPUT ******************************************************************* */
 
+/* each fieldset wraps a set of inputs and labels */
 fieldset {
     border: none;
 };
 
-input[type="text"] {
+input[type="text"] { /* doesn't transition back from focus/hover */
+    background: white;
+    border: 2px solid white;
     transition: all 0.5s ease;
     -moz-transition: all 0.5s ease;
     -o-transition: all 0.5s ease;
     -webkit-transition: all 0.5s ease;
-    border: 2px solid white;
 }
 
 input[type="text"]:focus, input[type="text"]:hover {
     outline: none;
-    border: 2px solid white;
+    background: black;
     color: white;
-    background: none;
-    transition: background 0.5s ease;
-    -moz-transition: background 0.5s ease;
-    -o-transition: background 0.5s ease;
-    -webkit-transition: background 0.5s ease;
+    transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    -webkit-transition: all 0.5s ease;
 }
 
-/* for some reason this needs to be precisely here in order for the positioning below to work */
+/* note: for some reason this needs to be precisely here in order for the positioning below to work */
 input[type="radio"] {
     position: absolute;
 }
@@ -286,50 +304,55 @@ input[type="radio"] + label {
     cursor: pointer;
 }
 
+/* outer circle of default radio button */
 input[type="radio"] + label::before {
+    border: 2px solid white;
+    border-radius: 50%;
     content: '';
+    display: inline-block;
+    height: 16px;
+    margin-right: 10px;
     position: relative;
     top: 5px;
-    display: inline-block;
-    margin-right: 10px;
     width: 16px;
-    height: 16px;
-    border-radius: 50%;
-    border: 2px solid white;
 }
 
-input[type="radio"]:focus + label::after, input[type="radio"]:hover + label::after {
-    content: '';
-    position: absolute;
-    top: 8px;
-    left: 8px;
-    height: 4px;
-    width: 4px;
+/* inner circle of radio button */
+input[type="radio"]:checked + label::after {
     background-color: white;
     border-radius: 50%;
-}
-
-input[type="radio"]:checked + label::after {
     content: '';
+    height: 8px;
     position: absolute;
     top: 6px;
     left: 6px;
-    height: 8px;
     width: 8px;
+}
+
+/* inner circle of radio button, on focus/hover */
+input[type="radio"]:focus + label::after, input[type="radio"]:hover + label::after {
     background-color: white;
     border-radius: 50%;
+    content: '';
+    height: 4px;
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    width: 4px;
+
 }
 
-/* for some reason this needs to be precisely here in order to hide the default radio buttons */
+/* hide default radio buttons (note: for some reason this needs to be precisely here in order to work) */
 input[type="radio"] { 
-    position: absolute;
-    height: 1px; 
-    width: 1px;
-    overflow: hidden;
     clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
     clip: rect(1px, 1px, 1px, 1px);
+    height: 1px; 
+    overflow: hidden;
+    position: absolute;
+    width: 1px;
 }
 
+/* style submit button */
 button[type="submit"] {
     background: white;
     border: 3px solid black;
@@ -338,6 +361,7 @@ button[type="submit"] {
     -moz-transition: all 0.5s ease;
     -o-transition: all 0.5s ease;
     -webkit-transition: all 0.5s ease;
+    width: 100%;
 }
 
 button[type="submit"]:focus, button[type="submit"]:hover {
@@ -348,13 +372,16 @@ button[type="submit"]:focus, button[type="submit"]:hover {
     -webkit-transition: all 0.5s ease;
 }
 
+/* style reset button */
 button[type="reset"] {
     color: grey;
+    background: none;
     border: 1px solid grey;
     transition: all 0.5s ease;
     -moz-transition: all 0.5s ease;
     -o-transition: all 0.5s ease;
     -webkit-transition: all 0.5s ease;
+    width: 100%;
 }
 
 button[type="reset"]:focus, button[type="reset"]:hover {

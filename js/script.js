@@ -13,37 +13,17 @@ submitButton.style.fontSize = '1rem';
 submitButton.style.height = '4.5rem';
 submitButton.style.margin = '0.5rem 0';
 submitButton.style.padding = '0 1rem';
-submitButton.style.width = '100%';
 
 // style clear button
 const clearButton = document.querySelector('button[type="reset"]');
-clearButton.style.background = 'none';
 clearButton.style.fontSize = '1rem';
 clearButton.style.height = '2.5rem';
 clearButton.style.margin = '1rem 0';
 clearButton.style.padding = '0 1rem';
-clearButton.style.width = '100%';
 
 // select result paragraphs and planet image
 const result = document.querySelectorAll('.result');
 const planetImage = document.querySelector('#planetImage');
-
-
-
-// when clicking the clear-button, remove content from input boxes and result paragraphs, and reset planet image
-clearButton.addEventListener('click', function() {
-    for (let i = 0; i < inputTextFields.length; i++) {
-        inputTextFields[i].value = "";
-    }
-
-    for (let i = 0; i < result.length; i++) {
-        result[i].innerHTML = "";
-    }
-
-    planetImage.setAttribute('src', 'https://xurxe.github.io/Integrify-5b-cosmic-density/assets/solar-system.jpg');
-
-    planetImage.setAttribute('alt', 'An illustration of our solar system.')
-});
 
 
 
@@ -136,11 +116,8 @@ addDensityRanges(planets);
 
 
 
-// select the calculation button
-const calculateDensityButton = document.querySelector('#calculateDensityButton');
-
-// when the button is clicked, execute the code below
-calculateDensityButton.addEventListener('click', function() {
+// when the calculation button is clicked, execute the code below
+submitButton.addEventListener('click', function() {
     // select the textboxes where the user enters the mass and volume
     const inputMass = document.querySelector('#inputMass');
     const inputVolume = document.querySelector('#inputVolume');
@@ -174,6 +151,9 @@ calculateDensityButton.addEventListener('click', function() {
 
         return false;
     }
+
+    // reset warning
+    warning.innerHTML = '';
 
     // select the mass unit of the radio button chosen by the user
     const unitMass = document.querySelector('input[name=unitMass]:checked');
@@ -300,4 +280,22 @@ calculateDensityButton.addEventListener('click', function() {
     
     // scroll to show the planet and result text
     calculateDensityResult.scrollIntoView();
+});
+
+
+
+
+// when clicking the clear-button, remove content from input boxes and result paragraphs, and reset planet image
+clearButton.addEventListener('click', function() {
+    for (let i = 0; i < inputTextFields.length; i++) {
+        inputTextFields[i].value = "";
+    }
+
+    for (let i = 0; i < result.length; i++) {
+        result[i].innerHTML = "";
+    }
+
+    planetImage.setAttribute('src', 'https://xurxe.github.io/Integrify-5b-cosmic-density/assets/solar-system.jpg');
+
+    planetImage.setAttribute('alt', 'An illustration of our solar system.')
 });
