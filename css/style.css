@@ -275,23 +275,23 @@ fieldset {
     border: none;
 };
 
-input[type="text"] { /* doesn't transition back from focus/hover */
+input[type="text"] { /* didn't transition back from focus/hover, had to add transition to JS */
     background: white;
     border: 2px solid white;
-    transition: all 0.5s ease;
-    -moz-transition: all 0.5s ease;
-    -o-transition: all 0.5s ease;
-    -webkit-transition: all 0.5s ease;
+    transition: background 0.5s ease;
+    -moz-transition: background 0.5s ease;
+    -o-transition: background 0.5s ease;
+    -webkit-transition: background 0.5s ease;
 }
 
 input[type="text"]:focus, input[type="text"]:hover {
     outline: none;
     background: black;
     color: white;
-    transition: all 0.5s ease;
-    -moz-transition: all 0.5s ease;
-    -o-transition: all 0.5s ease;
-    -webkit-transition: all 0.5s ease;
+    transition: background 0.5s ease;
+    -moz-transition: background 0.5s ease;
+    -o-transition: background 0.5s ease;
+    -webkit-transition: background 0.5s ease;
 }
 
 /* note: for some reason this needs to be precisely here in order for the positioning below to work */

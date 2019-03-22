@@ -5,7 +5,26 @@ for (let i = 0; i < inputTextFields.length; i++) {
     inputTextFields[i].style.margin = '0.2rem 0 1.5rem';
     inputTextFields[i].style.padding = '0.4rem 0.6rem';
     inputTextFields[i].style.width = '100%';
+
+    /* had to add these functions because transitions were not working properly */
+    inputTextFields[i].addEventListener('mouseover', function() {
+        inputTextFields[i].style.transition = 'background 0.5s ease';
+    });
+    
+    inputTextFields[i].addEventListener('mouseout', function() {
+        inputTextFields[i].style.transition = 'background 0.5s ease';
+    });
+    
+    inputTextFields[i].addEventListener('focus', function() {
+        inputTextFields[i].style.transition = 'background 0.5s ease';
+    });
+    
+    inputTextFields[i].addEventListener('blur', function() {
+        inputTextFields[i].style.transition = 'background 0.5s ease';
+    });
 }
+
+
 
 // style submit button
 const submitButton = document.querySelector('button[type="submit"]');
