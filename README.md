@@ -13,7 +13,7 @@ Some of my classmates chose to follow my alternative assignment idea instead of 
 
 ## Demo
 
-https://xurxe.github.io/Integrify-5b-cosmic-density/
+https://xurxe.github.io/Integrify-08-cosmic-density/
 
 ## Author
 
