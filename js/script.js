@@ -54,37 +54,30 @@ const planets = [
         name: 'Saturn',
         density: 0.69,
     },
-
     {
         name: 'Uranus',
         density: 1.27,
     },
-
     {
         name: 'Jupiter',
         density: 1.33,
     },
-
     {
         name: 'Neptune',
         density: 1.64,
     },
-
     {
         name: 'Mars',
         density: 3.93,
     },
-
     {
         name: 'Venus',
         density: 5.24,
     },
-
     {
         name: 'Mercury',
         density: 5.42,
     },
-
     {
         name: 'Earth',
         density: 5.51,
@@ -147,7 +140,7 @@ submitButton.addEventListener('click', function() {
             result[i].innerHTML = "";
         }
     
-        planetImage.setAttribute('src', 'https://xurxe.github.io/Integrify-5b-cosmic-density/assets/solar-system.jpg');
+        planetImage.setAttribute('src', 'https://xurxe.github.io/Integrify-08-cosmic-density/assets/solar-system.jpg');
     
         planetImage.setAttribute('alt', 'An illustration of our solar system.')
 
@@ -162,7 +155,7 @@ submitButton.addEventListener('click', function() {
             result[i].innerHTML = "";
         }
     
-        planetImage.setAttribute('src', 'https://xurxe.github.io/Integrify-5b-cosmic-density/assets/solar-system.jpg');
+        planetImage.setAttribute('src', 'https://xurxe.github.io/Integrify-08-cosmic-density/assets/solar-system.jpg');
     
         planetImage.setAttribute('alt', 'An illustration of our solar system.')
 
@@ -241,7 +234,7 @@ submitButton.addEventListener('click', function() {
     }
 
     // set planetImage to display that planet and adjust alt text accordingly
-    planetImage.setAttribute('src', 'https://xurxe.github.io/Integrify-5b-cosmic-density/assets/' + planetName + '.jpg');
+    planetImage.setAttribute('src', 'https://xurxe.github.io/Integrify-08-cosmic-density/assets/' + planetName + '.jpg');
 
     planetImage.setAttribute('alt', 'A photo of' + planetName);
 
@@ -314,7 +307,7 @@ clearButton.addEventListener('click', function() {
         result[i].innerHTML = "";
     }
 
-    planetImage.setAttribute('src', 'https://xurxe.github.io/Integrify-5b-cosmic-density/assets/solar-system.jpg');
+    planetImage.setAttribute('src', 'https://xurxe.github.io/Integrify-08-cosmic-density/assets/solar-system.jpg');
 
     planetImage.setAttribute('alt', 'An illustration of our solar system.')
 });

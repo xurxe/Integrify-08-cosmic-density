@@ -129,7 +129,7 @@ sub {
 /* display when user enters valid input */
 .result-density {
     font-size: 2rem;
-    padding: 3rem 0 1rem;
+    padding: 2rem 0 0;
 }
 
 footer a {
@@ -195,7 +195,7 @@ main {
 
 /* more-space applies to everything on main except for the planet picture */
 .more-space {
-    margin: 3rem 8rem;
+    margin: 3rem 8rem 0;
 }
 
 /* grid contains the formula and input */
@@ -205,7 +205,7 @@ main {
     grid-row-gap: 2rem;
     grid-template-columns: 1fr;
     grid-template-rows: auto 1fr;
-    margin: 4rem 0;
+    margin: 2rem 0;
 }
 
 @media only screen and (min-width: 600px) and (max-width: 1000px) {
